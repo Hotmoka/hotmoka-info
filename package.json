@@ -15,7 +15,7 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Hotmoka/hotexplorer.git"
+    "url": "https://github.com/Hotmoka/hotmoka-info.git"
   },
   "dependencies": {
     "bootstrap": "^4.5.2",

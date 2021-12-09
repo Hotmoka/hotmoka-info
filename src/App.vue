@@ -114,7 +114,7 @@ export default {
       localStorage.setItem('node-url', url)
       this.connectedNode.connecting = true
       this.connectedNode.url = url
-      this.connectedNode.networkName = getNetworkName(url)
+      this.connectedNode.networkName = getNetworkName(url, this.isDev)
       this.getRemoteNodeInfo(url)
     }
   },

@@ -32,11 +32,14 @@ export const dismissErrorAlert = () => {
     })
 }
 
-export const getNetworkName = url => {
+export const getNetworkName = (url, isDev) => {
     try {
+        if (isDev && url === '') {
+            return 'localhost'
+        }
         return url.substring(url.indexOf("://") + 3)
     } catch (e) {
-        return null
+        return ''
     }
 }
 

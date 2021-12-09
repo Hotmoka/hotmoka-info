@@ -48,10 +48,6 @@ export default {
   box-shadow: 0 2px 5px rgba(171, 154, 154, 0.4);
 }
 
-#hotmoka-logo {
-  cursor: pointer;
-}
-
 .exit-icon {
   width: 32px; height: 32px;
   margin-left: 12px;

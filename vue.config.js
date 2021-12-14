@@ -1,4 +1,5 @@
 module.exports = {
+    publicPath: '/testnet',
     devServer: {
         // local blockchain node
         proxy: {

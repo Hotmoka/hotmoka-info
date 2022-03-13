@@ -90,9 +90,6 @@
                 targetGasAtReward: <code>{{ nodeInfo.gasStation.targetGasAtReward}}</code>
               </li>
               <li>
-                inflation: <code>{{ nodeInfo.gasStation.inflation }} (ie. {{ nodeInfo.gasStation.inflationInfo }})</code>
-              </li>
-              <li>
                 oblivion: <code>{{ nodeInfo.gasStation.oblivion }} (ie. {{ nodeInfo.gasStation.oblivionInfo }})</code>
               </li>
             </ul>
@@ -105,6 +102,18 @@
           </code>
 
             <ul>
+              <li>
+                surcharge for buying validation power: <code>{{ nodeInfo.validators.buyerSurcharge }} (ie. {{ nodeInfo.validators.buyerSurchargeInfo}})</code>
+              </li>
+              <li>
+                slashing for misbehaving validators: <code>{{ nodeInfo.validators.slashingForMisbehaving }} (ie. {{ nodeInfo.validators.slashingForMisbehavingInfo}})</code>
+              </li>
+              <li>
+                slashing for not behaving validators: <code>{{ nodeInfo.validators.slashingForNotBehaving }} (ie. {{ nodeInfo.validators.slashingForNotBehavingInfo}})</code>
+              </li>
+              <li>
+                percent of validators' reward that gets staked: <code>{{ nodeInfo.validators.percentStaked }} (ie. {{ nodeInfo.validators.percentStakedInfo}})</code>
+              </li>
               <li>
                 number of validators: <code>{{ nodeInfo.validators.numOfValidators }}</code>
               </li>
@@ -124,10 +133,22 @@
                 </ul>
               </li>
               <li>
-                totalSupply: <code>{{ nodeInfo.validators.totalSupply }}</code>
+                initialSupply: <code>{{ nodeInfo.validators.initialSupply }}</code>
               </li>
               <li>
-                totalSupplyRed: <code>{{ nodeInfo.validators.totalSupplyRed}}</code>
+                currentSupply: <code>{{ nodeInfo.validators.currentSupply }}</code>
+              </li>
+              <li>
+                finalSupply: <code>{{ nodeInfo.validators.finalSupply }}</code>
+              </li>
+              <li>
+                initialRedSupply: <code>{{ nodeInfo.validators.initialRedSupply }}</code>
+              </li>
+              <li>
+                initialInflation: <code>{{ nodeInfo.validators.initialInflation}} (ie. {{ nodeInfo.validators.initialInflationInfo}})</code>
+              </li>
+              <li>
+                currentInflation: <code>{{ nodeInfo.validators.currentInflation}} (ie. {{ nodeInfo.validators.currentInflationInfo}})</code>
               </li>
               <li>
                 height: <code>{{ nodeInfo.validators.height}}</code>
@@ -140,6 +161,35 @@
               </li>
               <li>
                 number of polls: <code>{{ nodeInfo.validators.numberOfPolls}}</code>
+              </li>
+            </ul>
+          </li>
+
+          <!-- initial validators -->
+          <li class="filled-dot" v-if="nodeInfo.initialValidators">
+            initial validators: <code class="storage-ref-code">{{
+              referenceToString(nodeInfo.initialValidators.validatorsReference.transaction.hash, nodeInfo.initialValidators.validatorsReference.progressive) }}
+          </code>
+
+            <ul>
+              <li>
+                number of initial validators: <code>{{ nodeInfo.initialValidators.numberOfInitialValidators }}</code>
+              </li>
+
+              <li class="filled-dot" v-for="(v, index) in nodeInfo.initialValidators.validators" :key="index">
+                initial validator #{{index}}: <code class="storage-ref-code"> {{ referenceToString(v.validator.transaction.hash, v.validator.progressive) }}</code>
+
+                <ul>
+                  <li>
+                    id: <code>{{ v.id }}</code>
+                  </li>
+                  <li>
+                    balance: <code>{{ v.balanceOfValidator }}</code>
+                  </li>
+                  <li>
+                    power: <code>{{ v.power }}</code>
+                  </li>
+                </ul>
               </li>
             </ul>
           </li>
